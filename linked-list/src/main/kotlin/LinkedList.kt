@@ -2,10 +2,12 @@ class Deque<T> {
 
     var value : T? = null
     var next: Deque<T>? = null
+    var prev: Deque<T>? = null
     fun push(value: T) {
         this.value?.let{
             next = Deque<T>()
             next!!.push(it)
+            next!!.prev = this
         }
         this.value = value
     }
@@ -23,8 +25,14 @@ class Deque<T> {
     }
 
     fun shift(): T? {
-        TODO("Implement this function to complete the task")
+        return this.next?.shift()?:run{
+            prev?.next = null
+            value
+        }
+
     }
+
+
     override fun toString() = ((value?.toString()?:" ") + " " + (next?.value?.toString()?:" ")).trim()
 }
 

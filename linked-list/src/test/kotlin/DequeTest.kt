@@ -20,7 +20,6 @@ class DequeTest {
         assertEquals(10, subject.pop())
     }
 
-    @Ignore
     @Test
     fun pushShift() {
         subject.push(10)
