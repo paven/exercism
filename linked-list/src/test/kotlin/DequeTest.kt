@@ -28,7 +28,6 @@ class DequeTest {
         assertEquals(20, subject.shift())
     }
 
-    @Ignore
     @Test
     fun unshiftShift() {
         subject.unshift(10)

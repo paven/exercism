@@ -21,7 +21,11 @@ class Deque<T> {
 
 
     fun unshift(value: T) {
-        TODO("Implement this function to complete the task")
+        return this.next?.unshift(value)?:run{
+            next = Deque()
+            next!!.value=value
+            next!!.prev=this
+        }
     }
 
     fun shift(): T? {
