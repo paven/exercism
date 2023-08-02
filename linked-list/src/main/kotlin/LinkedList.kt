@@ -21,11 +21,11 @@ class Deque<T> {
 
 
     fun unshift(value: T) {
-        return this.next?.unshift(value)?:run{
-            next = Deque()
-            next!!.value=value
-            next!!.prev=this
-        }
+        return (this.next?.unshift(value)?:let{
+            this.value?.let {  this.next = Deque()
+                this.next!!.value=value
+                this.next!!.prev=this }
+        })?:run{this.value = value}
     }
 
     fun shift(): T? {

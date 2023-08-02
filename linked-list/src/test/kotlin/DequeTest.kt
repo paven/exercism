@@ -36,7 +36,6 @@ class DequeTest {
         assertEquals(10, subject.shift())
     }
 
-    @Ignore
     @Test
     fun unshiftPop() {
         subject.unshift(10)
