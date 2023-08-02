@@ -1,12 +1,22 @@
 class Deque<T> {
 
+    var value : T? = null
+    var next: Deque<T>? = null
     fun push(value: T) {
-        TODO("Implement this function to complete the task")
+        this.value?.let{
+            next = Deque<T>()
+            next!!.push(it)
+        }
+        this.value = value
     }
 
     fun pop(): T? {
-        TODO("Implement this function to complete the task")
+        val value = this.value
+        this.value = this.next?.value
+        this.next = this.next?.next
+        return value
     }
+
 
     fun unshift(value: T) {
         TODO("Implement this function to complete the task")
@@ -15,4 +25,6 @@ class Deque<T> {
     fun shift(): T? {
         TODO("Implement this function to complete the task")
     }
+    override fun toString() = ((value?.toString()?:" ") + " " + (next?.value?.toString()?:" ")).trim()
 }
+
